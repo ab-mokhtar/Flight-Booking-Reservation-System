@@ -1,0 +1,66 @@
+<div class="loader-container" *ngIf="displayModal">
+  <div
+    class="spinner-border text-light"
+    style="width: 3rem; height: 3rem"
+    role="status"
+  ></div>
+  <h3 style="margin-top: 10px; color: white">Loading</h3>
+</div>
+
+<div
+  class="All"
+  style="
+    background-image: url(assets/Images/login_background.jpg);
+    background-size: cover;
+    padding-top: 5em;
+    padding-bottom: 5em;
+  "
+>
+  <div
+    style="
+      width: 60%;
+      margin: auto;
+      background: rgb(246, 246, 246);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0px 0px 10px #333;
+    "
+  >
+    <p
+      style="
+        font-weight: bold;
+        font-size: 28px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bolder;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      "
+    >
+      LOGIN
+    </p>
+
+    <p></p>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <input type="text"
+             ngModel
+             name="userName"
+             id="userName"
+             placeholder="Enter your username"
+             class="form-control mb-3"
+      >
+
+      <input type="password"
+             ngModel
+             name="userPassword"
+             id="userPassword"
+             placeholder="Enter your password"
+             class="form-control mb-3"
+      >
+
+      <input type="submit"
+             value="Login"
+             class="btn btn-outline-primary form-control rounded-0">
+    </form>
+  </div>
+</div>
