@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ADMIN_ROLE } from 'src/app/constants/IMPData';
 import { UserAuthService } from 'src/app/services/User/user-auth.service';
 import { UserService } from 'src/app/services/User/user.service';
 
@@ -17,7 +16,7 @@ export class HeaderComponent implements OnInit {
   adminRole: any;
   constructor(private userAuthService: UserAuthService, private router: Router) {
     this.user = [];
-    this.adminRole = ADMIN_ROLE;
+    this.adminRole = false;
     this.displayWelcomeHeader = true;
   }
 
@@ -28,6 +27,9 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('id')) {
       this.user.push(1);
     }
+    this.adminRole=this.userAuthService.getRoles()
+    this.adminRole=this.adminRole[0].roleName==="Admin"
+    
     
   }
 

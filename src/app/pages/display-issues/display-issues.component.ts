@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ADMIN_ROLE } from 'src/app/constants/IMPData';
 import { IssueService } from 'src/app/services/Issue/issue.service';
 import { UserService } from 'src/app/services/User/user.service';
 
@@ -28,7 +27,7 @@ export class DisplayIssuesComponent implements OnInit {
   ngOnInit(): void {
  
     if (this.user.length > 0) {
-      if (this.user[0].role !== ADMIN_ROLE) {
+      if (this.user[0].role !== "ADMIN") {
         this.router.navigate(['/']);
         return;
       }
