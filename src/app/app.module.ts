@@ -30,6 +30,7 @@ import { DatePipe } from '@angular/common';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './guards/auth.interceptor';
 import { UserService } from './services/User/user.service';
+import { EditFlightComponent } from './pages/edit-flight/edit-flight.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { UserService } from './services/User/user.service';
     AboutUsComponent,
     ContactUsComponent,
     DisplayIssuesComponent,
+    EditFlightComponent,
   ],
   imports: [
     BrowserModule,
