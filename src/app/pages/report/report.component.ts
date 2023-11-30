@@ -8,32 +8,32 @@ import { IssueService } from 'src/app/services/Issue/issue.service';
   styleUrls: ['./report.component.css'],
 })
 export class ReportComponent implements OnInit {
-  issue: string;
+  issue!: any;
 
   displayModal = false;
-
+ msg!:string
   constructor(
     private issueService: IssueService,
     private toastr: ToastrService
   ) {
-    this.issue = '';
   }
 
   ngOnInit(): void {}
 
   handleFormSubmit() {
+    this.issue={msg:this.msg,
+     user: {username:localStorage.getItem('id')}}
+     console.log(this.issue);
+     
     this.displayModal = true;
     this.issueService.addIssue(this.issue).subscribe(
       (result: any) => {
         console.log(result);
-        if (result.isDone) {
+        
           console.log('Issue raised successfully');
           this.toastr.success('Issue raised successfully', 'Success');
           this.issue = '';
-        } else {
-          console.log('Error', result.err.writeErrors[0].errmsg);
-          this.toastr.error('Error', result.err.writeErrors[0].errmsg);
-        }
+       
 
         this.displayModal = false;
       },

@@ -22,15 +22,15 @@ export class AddFlightComponent implements OnInit {
   returnDate = '';
   returnTime = '';
 
-  isEconomyClass = false;
+  isEconomyClass !:boolean;
   economyClassSeats = '';
   economyClassTicketPrice = '';
 
-  isBusinessClass = false;
+  isBusinessClass !:boolean;
   businessClassSeats = '';
   businessClassTicketPrice = '';
 
-  isFirstClass = false;
+  isFirstClass !:boolean ;
   firstClassSeats = '';
   firstClassTicketPrice = '';
 
@@ -67,9 +67,9 @@ export class AddFlightComponent implements OnInit {
       departureTime: this.departureTime,
       returnDate: this.returnDate,
       returnTime: this.returnTime,
-      isEconomyClass: this.isEconomyClass,
-      isBusinessClass: this.isBusinessClass,
-      isFirstClass: this.isFirstClass,
+      economyClass: this.isEconomyClass,
+      businessClass: this.isBusinessClass,
+      firstClass: this.isFirstClass,
      
     };
     

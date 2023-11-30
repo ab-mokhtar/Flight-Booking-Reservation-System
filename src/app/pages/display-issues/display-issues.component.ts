@@ -26,27 +26,19 @@ export class DisplayIssuesComponent implements OnInit {
 
   ngOnInit(): void {
  
-    if (this.user.length > 0) {
-      if (this.user[0].role !== "ADMIN") {
-        this.router.navigate(['/']);
-        return;
-      }
-    }
+   
 
     this.displayModal = true;
 
     this.issueService.getIssues().subscribe(
       (result: any) => {
-        console.log(result);
-        if (result.isDone) {
+        console.log("weslett");
+      
           console.log('Issues Successfully');
           this.toastr.success('Issues Successfully', 'Success');
           console.log(result.data);
-          this.issues = result.data;
-        } else {
-          console.log('Error', result.err.writeErrors[0].errmsg);
-          this.toastr.error('Error', result.err.writeErrors[0].errmsg);
-        }
+          this.issues = result;
+       
         this.displayModal = false;
       },
       (error) => {

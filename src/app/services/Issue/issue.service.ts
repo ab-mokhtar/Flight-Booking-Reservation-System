@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { API_PATH, TOKEN_PREFIX } from 'src/app/constants/IMPData';
 
 @Injectable({
@@ -12,33 +13,19 @@ export class IssueService {
     this.issues = [];
   }
 
-  getIssues() {
-    const jwt_token = localStorage.getItem('token');
+  getIssues():Observable<any[]> {
 
-    return this.http.post(
-      `${API_PATH}/issue/getissues`,
-      {},
-      {
-        headers: {
-          authorization: `${TOKEN_PREFIX} ${jwt_token}`,
-        },
-      }
+    return this.http.get<any[]>(
+      `${API_PATH}/issue/all`
     );
   }
 
-  addIssue(issue: any) {
-    const jwt_token = localStorage.getItem('token');
+  addIssue(issue: any) :Observable<any>{
 
-    return this.http.post(
-      `${API_PATH}/issue/addissue`,
-      {
-        issue: issue,
-      },
-      {
-        headers: {
-          authorization: `${TOKEN_PREFIX} ${jwt_token}`,
-        },
-      }
+    return this.http.post<any>(
+      `${API_PATH}/issue/add`,issue
+     
+      
     );
   }
 }

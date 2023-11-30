@@ -16,21 +16,21 @@
     <div class="card-body">
       <div class="card-text">
         <h6 style="margin-bottom: 12px">
-          <b>User ID:</b>{{ " " }}
-          <span style="font-weight: 400">{{ issue.userId }}</span>
+          <b>User :</b>{{ " " }}
+          <span style="font-weight: 400">{{ issue.user.userFirstName}} {{ issue.user.userLastName  }}</span>
         </h6>
         <h6 style="margin-bottom: 12px">
           <b>Username:</b>{{ " " }}
-          <span style="font-weight: 400">{{ issue.username }}</span>
+          <span style="font-weight: 400">{{ issue.user.username }}</span>
         </h6>
 
         <h6 style="margin-bottom: 12px">
           <b>Email:</b>{{ " " }}
-          <span style="font-weight: 400">{{ issue.email }}</span>
+          <span style="font-weight: 400">{{ issue.user.email }}</span>
         </h6>
         <h6 style="margin-bottom: 12px">
           <b>Issue Raise Date:</b>{{ " " }}
-          <span style="font-weight: 400">{{ issue.createdAt }}</span>
+          <span style="font-weight: 400">{{ issue.date }}</span>
         </h6>
         <h6
           style="
@@ -41,7 +41,7 @@
           "
         >
           <b>Issue:</b>{{ " " }}
-          <span style="font-weight: 400">{{ issue.issue }}</span>
+          <span style="font-weight: 400">{{ issue.msg }}</span>
         </h6>
       </div>
     </div>
