@@ -17,6 +17,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { DisplayIssuesComponent } from './pages/display-issues/display-issues.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditFlightComponent } from './pages/edit-flight/edit-flight.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
     path: 'report-issue',
     component: ReportComponent,
     canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
+    {
+      path: 'edit-flight/:id',
+      component: EditFlightComponent,
+      canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
   {
     path: 'issues',
     component: DisplayIssuesComponent,

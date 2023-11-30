@@ -9,48 +9,40 @@ import { FlightService } from 'src/app/services/Flight/flight.service';
   styleUrls: ['./flight-history.component.css'],
 })
 export class FlightHistoryComponent implements OnInit {
-  flightHistory: any[];
+  flightHistory: any=[];
 
-  displayModal = false;
   constructor(
     private router: Router,
     private flightService: FlightService,
     private toastr: ToastrService
   ) {
-    this.flightHistory = [];
   }
 
   ngOnInit(): void {
-    this.displayModal = true;
-
-    this.flightService.getFlightBookingHistory().subscribe(
-      (result: any) => {
-        console.log(result);
-        if (result.isDone) {
-          console.log('History Fetched Successfully');
-
-          this.toastr.success('History Fetched Successfully');
-
-          this.flightHistory = result.data;
-          this.flightService.flightHistory = result.data;
-          this.displayModal = false;
-        } else {
-          console.log('Error', result.err.writeErrors[0].errmsg);
-          this.toastr.error('Error', result.err.writeErrors[0].errmsg);
-          this.displayModal = false;
-        }
-      },
-      (error) => {
-        console.log('Error Occured: ', error.error.msg);
-        this.toastr.error('Error', error.error.msg);
-        this.displayModal = false;
-      }
+    this.flightHistory =[]
+    this.flightService.getFlights().subscribe(
+      data=>{this.flightHistory=data;
+        console.log(this.flightHistory)},
+        error=>{}
     );
   }
 
-  viewReceipt(flightItem: any) {
-    this.flightService.bookedFlight.splice(0, 1);
-    this.flightService.bookedFlight.push([flightItem]);
-    this.router.navigate(['/flight-receipt']);
+ 
+  showDetails(flight: any) {
+    console.log('Show Details: ', flight);
+    const flightId = flight.id;
+
+    // Set the selected flight in the service
+    this.flightService.setSelectedFlight(flight);
+  
+    // Navigate to the flight details page with the flight ID in the URL
+    this.router.navigate(['/flight-details', flightId]);
+  }
+  deleteFlight(id:any){
+    this.flightService.deleteFlght(id).subscribe();
+    location.reload()
+  }
+  goToEdit(id:any){
+    this.router.navigate(['/edit-flight',id])
   }
 }

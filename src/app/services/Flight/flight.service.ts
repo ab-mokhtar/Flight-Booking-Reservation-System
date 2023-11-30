@@ -100,6 +100,13 @@ export class FlightService {
     return of(this.bookedFlight);
   }
 
+  deleteFlght(id:any){
+    return this.http.delete(`${API_PATH}/flights/delete/`+id);
+  }
+  updateFlight( flightId:any, newFly:any){
+    return this.http.put(`${API_PATH}/flights/${flightId}`, newFly)
+  }
+
   // Flight Booking
   getFlightBookingHistory() {
     const jwt_token = localStorage.getItem('token');

@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
       this.user.push(1);
     }
     this.adminRole=this.userAuthService.getRoles()
+    console.log(this.userAuthService.getRoles())
     this.adminRole=this.adminRole[0].roleName==="Admin"
     
     
