@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/services/User/user-auth.service';
 import { UserService } from 'src/app/services/User/user.service';
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/User/user.service';
 })
 export class HeaderComponent implements OnInit {
   displayWelcomeHeader: boolean;
-
+ 
   imageSrc = 'assets/Images/menu2.png';
   user: any[];
   adminRole: any;
@@ -21,9 +21,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (localStorage.getItem('displayWelcomeHeader')) {
-      this.displayWelcomeHeader = false;
-    }
+    
+    this.refreshHeader()
     if (localStorage.getItem('id')) {
       this.user.push(1);
     }
@@ -33,7 +32,11 @@ export class HeaderComponent implements OnInit {
     
     
   }
-
+  refreshHeader() {
+    // Your initialization logic here...
+    this.displayWelcomeHeader = !this.userAuthService.isLoggedIn();
+    // other initialization code...
+  }
   displayUser() {
     console.log('user : ', this.user);
   }

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -30,7 +31,8 @@ export class LoginPageComponent implements OnInit {
         this.userAuthService.setRoles(response.user.role);
         this.userAuthService.setToken(response.jwtToken);
         LoginPageComponent.isauthenticated=true;
-        this.router.navigate(['/issues']);
+        this.router.navigate(['/']);
+
 
       },
       (error) => {

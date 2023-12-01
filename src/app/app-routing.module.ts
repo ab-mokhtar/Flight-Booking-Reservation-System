@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path: 'issues',
     component: DisplayIssuesComponent,
-    canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
+    canActivate:[AuthGuard], data:{roles:['Admin']}  },
   {
     path: 'flights/:fr/:to/:d1/:d2',
     component: FlightsComponent,
@@ -69,7 +69,7 @@ const routes: Routes = [
   {
     path: 'add-flight',
     component: AddFlightComponent,
-    canActivate:[AuthGuard], data:{roles:['Admin','User']}
+    canActivate:[AuthGuard], data:{roles:['Admin']}
   },
   {
     path: 'account-settings',
