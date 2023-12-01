@@ -31,6 +31,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './guards/auth.interceptor';
 import { UserService } from './services/User/user.service';
 import { EditFlightComponent } from './pages/edit-flight/edit-flight.component';
+import { MyBookingComponent } from './pages/my-booking/my-booking.component';
+import { MyIssuesComponent } from './pages/my-issues/my-issues.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { EditFlightComponent } from './pages/edit-flight/edit-flight.component';
     ContactUsComponent,
     DisplayIssuesComponent,
     EditFlightComponent,
+    MyBookingComponent,
+    MyIssuesComponent,
   ],
   imports: [
     BrowserModule,

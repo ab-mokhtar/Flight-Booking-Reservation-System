@@ -18,6 +18,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { DisplayIssuesComponent } from './pages/display-issues/display-issues.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditFlightComponent } from './pages/edit-flight/edit-flight.component';
+import { MyBookingComponent } from './pages/my-booking/my-booking.component';
+import { MyIssuesComponent } from './pages/my-issues/my-issues.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,11 @@ const routes: Routes = [
     component: ReportComponent,
     canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
     {
+      path: 'my-booking',
+      component: MyBookingComponent,
+      canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
+      
+    {
       path: 'edit-flight/:id',
       component: EditFlightComponent,
       canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
@@ -38,6 +45,10 @@ const routes: Routes = [
     path: 'issues',
     component: DisplayIssuesComponent,
     canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
+    {
+      path: 'my-issues',
+      component: MyIssuesComponent,
+      canActivate:[AuthGuard], data:{roles:['Admin','User']}  },
   {
     path: 'flights/:fr/:to/:d1/:d2',
     component: FlightsComponent,

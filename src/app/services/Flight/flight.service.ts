@@ -43,6 +43,9 @@ export class FlightService {
   
     );
   }
+  getBookingByUserId(id:any){
+    return this.http.get<any[]>( `${API_PATH}/bookings/user/`+id)
+  }
   getFlightsById(id:any):Observable<any> {
 
     return this.http.get<any>(
@@ -102,6 +105,9 @@ export class FlightService {
 
   deleteFlght(id:any){
     return this.http.delete(`${API_PATH}/flights/delete/`+id);
+  }
+  deleteBooking(id:any){
+    return this.http.delete(`${API_PATH}/bookings/`+id);
   }
   updateFlight( flightId:any, newFly:any){
     return this.http.put(`${API_PATH}/flights/${flightId}`, newFly)

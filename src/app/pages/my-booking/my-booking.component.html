@@ -1,0 +1,86 @@
+<div class="container">
+    <h3 class="mb-4"> Booking History</h3>
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4" *ngFor="let booking of bookingHistory">
+        <div class="card" style="width: 100%; box-shadow: '0px 0px 7px #ccc'">
+          <div class="card-body">
+            <div class="card-text">
+        <h6
+                style="
+                  padding: 15px 10px;
+                  box-shadow: '0px 0px 7px #ccc';
+                  margin-top: 15px;
+                  border-radius: 5px;
+                "
+              >
+                Booking Id:
+                <span style="font-weight: 400">{{ booking.id}}</span>
+              </h6>
+              <h6
+              style="
+                padding: 15px 10px;
+                box-shadow: '0px 0px 7px #ccc';
+                margin-top: 20px;
+                border-radius: 5px;
+              "
+            >
+              Flight from:
+              <span style="font-weight: 400">{{ booking.flightDetails.origin }}</span>
+            </h6>
+            <h6
+            style="
+              padding: 15px 10px;
+              box-shadow: '0px 0px 7px #ccc';
+              margin-top: 20px;
+              border-radius: 5px;
+            "
+          >
+            Flight to:
+            <span style="font-weight: 400">{{ booking.flightDetails.destination }}</span>
+          </h6>
+            <h6
+            style="
+              padding: 15px 10px;
+              box-shadow: '0px 0px 7px #ccc';
+              margin-top: 15px;
+              border-radius: 5px;
+            "
+          >
+            flight date:
+            <span style="font-weight: 400">{{ booking.flightDetails.departureDate }}  </span>
+          </h6>
+          <h6
+            style="
+              padding: 15px 10px;
+              box-shadow: '0px 0px 7px #ccc';
+              margin-top: 15px;
+              border-radius: 5px;
+            "
+          >
+            Booking date:
+            <span style="font-weight: 400">{{ booking.date }}  </span>
+          </h6>
+          <h6
+          style="
+            padding: 15px 10px;
+            box-shadow: '0px 0px 7px #ccc';
+            margin-top: 15px;
+            border-radius: 5px;
+          "
+        >
+          Total Cost:
+          <span style="font-weight: 400">{{ booking.totalCost }}</span>
+        </h6>
+          
+              <div class="d-grid mt-3">
+                <button class="btn btn-danger" (click)="deleteBooking(booking.id)" >Delete</button>
+
+              </div>
+          
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  
