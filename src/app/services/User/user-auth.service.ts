@@ -9,6 +9,7 @@ export class UserAuthService {
   constructor() {}
 
   public setRoles(roles: []) {
+    console.log(roles)
     localStorage.setItem('roles', JSON.stringify(roles));
   }
 

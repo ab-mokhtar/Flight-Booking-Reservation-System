@@ -66,15 +66,32 @@
         </a>
       </div>
 
-      <a
-        *ngIf="user.length > 0"
-        class="navbar-item"
-        routerLink="/flight-booking"
-      >
+      <div
+      *ngIf="user.length > 0"
+      class="navbar-item has-dropdown is-hoverable"
+    >
+      <a class="navbar-link">
         <h3 style="margin-bottom: 5px; font-family: Georgia">
-          <b> Book Flight </b>
+          <b> Booking </b>
         </h3>
       </a>
+
+      <div class="navbar-dropdown">
+        <a
+          class="navbar-item"
+          routerLink="/flight-booking"
+        >
+        Book Flight
+        </a>
+        <a
+
+          class="navbar-item"
+          routerLink="/my-booking"
+        >
+          My Booking
+        </a>
+        </div>
+      </div>
 
       <!-- <a class="navbar-item">
         <h3 style="margin-bottom: 5px; font-family: Georgia">
@@ -107,6 +124,12 @@
           >
             Issues
           </a>
+          <a
+          class="navbar-item"
+          routerLink="/my-issues"
+        >
+          My Issues
+        </a>
           <a class="navbar-item" routerLink="/flight-history">
             Flight History
           </a>

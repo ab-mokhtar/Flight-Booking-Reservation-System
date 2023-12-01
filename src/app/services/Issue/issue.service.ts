@@ -28,4 +28,7 @@ export class IssueService {
       
     );
   }
+  getIssueByUserId(id:any){
+    return this.http.get<any[]>( `${API_PATH}/issue/user/`+id)
+  }
 }
